@@ -1,0 +1,33 @@
+{
+    "module_name": "workflow_creator",
+    "file_name": "tasks",
+    "tasks": {
+        "task_list": [
+            {
+                "task_name": "WorkflowSpec",
+                "task_inherits": "ExternalTask",
+                "task_parameters": "None",
+                "task_requires": "None",
+                "task_outputs": {
+                    "salted": false,
+                    "target_class": "LocalTarget"
+                }
+            },
+            {
+                "task_name": "ModuleGenerator",
+                "task_inherits": "Task",
+                 "task_parameters": "None",
+                "task_requires": [
+                    {
+                        "req_name": "workflow_spec",
+                        "req_class": "WorkflowSpec"
+                    }
+                ],
+                "task_outputs": {
+                    "salted": true,
+                    "target_class": "LocalTarget"
+                }
+            }
+        ]
+    }
+}
