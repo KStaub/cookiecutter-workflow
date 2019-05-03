@@ -1,5 +1,5 @@
 {%- for task in cookiecutter.tasks %}
-from luigi import {{task.task_inherits}}
+from luigi import {{task.inherits_from}}
     {%- if task.parameters != "null" %}
         {%- for param in task.parameters %}
             {%- if param.classpath != "null" %}
