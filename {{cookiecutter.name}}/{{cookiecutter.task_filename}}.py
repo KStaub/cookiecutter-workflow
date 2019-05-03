@@ -9,7 +9,7 @@ from {{param.classpath}} import {{param.type}}
     {%- endif %}
     {%- if task.requires != "null" %}
         {%- for req in task.requires %}
-            {% - if req.classpath != "null" %}
+            {%- if req.classpath != "null" %}
 from {{req.classpath}} import {{req.name}}
             {%- endif %}
         {%- endfor %}
