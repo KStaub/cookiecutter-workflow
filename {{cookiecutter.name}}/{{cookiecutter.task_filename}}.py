@@ -49,6 +49,7 @@ class {{task.name}}({{task.inherits_from}}):
     output = TargetOutput(base_dir="data", target_class={{task.outputs.name}})
     {%- endif %}
 
+    # IMPLEMENT YOUR RUN
     def run(self):
         raise NotImplementedError
 {%- endfor %}
