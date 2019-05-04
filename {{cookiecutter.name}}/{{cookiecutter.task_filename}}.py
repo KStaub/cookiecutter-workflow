@@ -14,7 +14,7 @@ from {{task.requires.classpath}} import {{task.requires.name}}
     {%- endif %}
     {%- if task.outputs is not none %}
         {%- if task.outputs.classpath is not none %}
-from {{task.outputs.classpath}} import {{out.name}}
+from {{task.outputs.classpath}} import {{task.outputs.name}}
         {%- endif %}
     {%- endif %}
 {%- endfor %}
