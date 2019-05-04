@@ -24,6 +24,9 @@ from pset_utils.luigi.output import *
 
 
 class {{task.name}}({{task.inherits_from.split(".")[-1]}}):
+    """
+    TODO
+    """
     __version__ = '1.0.0'
     _id = {{task.id}}
     {%- if task.parameters is defined %}
@@ -43,8 +46,12 @@ class {{task.name}}({{task.inherits_from.split(".")[-1]}}):
     output = TargetOutput(base_dir="data", target_class={{task.outputs.name}})
     {%- endif %}
 
-    # IMPLEMENT YOUR RUN
+
     def run(self):
+        """
+        TODO
+        Implement your task's run() here
+        """
         raise NotImplementedError
 {%- endfor %}
 
