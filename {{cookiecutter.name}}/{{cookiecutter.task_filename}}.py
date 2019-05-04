@@ -1,8 +1,8 @@
 {%- for task in cookiecutter.tasks.task_list %}
 from luigi import {{task.inherits_from}}
-    {%- if task.parameters is not None %}
+    {%- if task.parameters is not none %}
         {%- for param in task.parameters %}
-            {%- if param.classpath is not None %}
+            {%- if param.classpath is not none %}
 from {{param.classpath}} import {{param.type}}
             {%- endif %}
         {%- endfor %}
