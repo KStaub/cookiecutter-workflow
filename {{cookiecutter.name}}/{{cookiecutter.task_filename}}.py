@@ -1,5 +1,5 @@
 {%- for task in cookiecutter.tasks.task_list %}
-from luigi import {{task.inherits_from}}
+from luigi import {{task.inherits_from.split(".")[-1]}}
     {%- if task.parameters is defined %}
         {%- for param in task.parameters %}
             {%- if param.classpath is not none %}
@@ -23,7 +23,7 @@ from pset_utils.luigi.output import *
 {%- for task in cookiecutter.tasks.task_list %}
 
 
-class {{task.name}}({{task.inherits_from}}):
+class {{task.name}}({{task.inherits_from.split(".")[-1]}}):
     __version__ = '1.0.0'
     _id = {{task.id}}
     {%- if task.parameters is defined %}
