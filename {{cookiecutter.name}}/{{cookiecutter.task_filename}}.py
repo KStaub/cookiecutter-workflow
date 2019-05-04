@@ -8,18 +8,14 @@ from {{param.classpath}} import {{param.type}}
         {%- endfor %}
     {%- endif %}
     {%- if task.requires is not none %}
-        {%- for req in task.requires %}
-            {%- if req.classpath is not none %}
-from {{req.classpath}} import {{req.name}}
-            {%- endif %}
-        {%- endfor %}
+        {%- if task.requires.classpath is not none %}
+from {{task.requires.classpath}} import {{req.name}}
+        {%- endif %}
     {%- endif %}
-    {%- if task.requires is not none %}
-        {%- for out in task.outputs %}
-            {%- if out.classpath is not none %}
-from {{out.classpath}} import {{out.name}}
-            {%- endif %}
-        {%- endfor %}
+    {%- if task.outputs is not none %}
+        {%- if task.outputs.classpath is not none %}
+from {{task.outputs.classpath}} import {{out.name}}
+        {%- endif %}
     {%- endif %}
 {%- endfor %}
 from pset_utils.luigi.task import *
@@ -30,7 +26,7 @@ from pset_utils.luigi.output import *
 class {{task.name}}({{task.inherits_from}}):
     __version__ = '1.0.0'
     _id = {{task.id}}
-    {%- if task.parameters is not none %}
+    {%- if task.parameters is defined %}
         {%- for param in task.parameters %}
     {{param.name}} = {{param.type}}()
         {%- endfor %}
@@ -38,9 +34,7 @@ class {{task.name}}({{task.inherits_from}}):
 
     {%- if task.requires is not none %}
     requires = Requires()
-        {%- for req in task.requires %}
-    {{req.name.lower()}} = Requirement({{req.name}})
-        {%- endfor %}
+    {{task.requires.name.lower()}} = Requirement({{task.requires.name}})
     {%- endif %}
 
     {%- if task.outputs.salted %}
