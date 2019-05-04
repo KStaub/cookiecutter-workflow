@@ -9,7 +9,7 @@ from {{param.classpath}} import {{param.type}}
     {%- endif %}
     {%- if task.requires is not none %}
         {%- if task.requires.classpath is not none %}
-from {{task.requires.classpath}} import {{req.name}}
+from {{task.requires.classpath}} import {{task.requires.name}}
         {%- endif %}
     {%- endif %}
     {%- if task.outputs is not none %}
