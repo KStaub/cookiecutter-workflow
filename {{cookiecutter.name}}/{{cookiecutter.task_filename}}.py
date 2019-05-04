@@ -1,4 +1,4 @@
-{%- for task in cookiecutter.tasks %}
+{%- for task in cookiecutter.tasks.task_list %}
 from luigi import {{task.inherits_from}}
     {%- if task.parameters != "null" %}
         {%- for param in task.parameters %}
@@ -24,7 +24,7 @@ from {{out.classpath}} import {{out.name}}
 {%- endfor %}
 from pset_utils.luigi.task import *
 from pset_utils.luigi.output import *
-{%- for task in cookiecutter.tasks %}
+{%- for task in cookiecutter.tasks.task_list %}
 
 
 class {{task.name}}({{task.inherits_from}}):
