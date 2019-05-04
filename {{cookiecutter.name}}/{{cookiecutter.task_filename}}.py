@@ -1,22 +1,22 @@
 {%- for task in cookiecutter.tasks.task_list %}
 from luigi import {{task.inherits_from}}
-    {%- if task.parameters != "null" %}
+    {%- if task.parameters != "None" %}
         {%- for param in task.parameters %}
-            {%- if param.classpath != "null" %}
+            {%- if param.classpath != "None" %}
 from {{param.classpath}} import {{param.type}}
             {%- endif %}
         {%- endfor %}
     {%- endif %}
-    {%- if task.requires != "null" %}
+    {%- if task.requires != "None" %}
         {%- for req in task.requires %}
-            {%- if req.classpath != "null" %}
+            {%- if req.classpath != "None" %}
 from {{req.classpath}} import {{req.name}}
             {%- endif %}
         {%- endfor %}
     {%- endif %}
     {%- if task.requires != "None" %}
         {%- for out in task.outputs %}
-            {%- if out.classpath != "null" %}
+            {%- if out.classpath != "None" %}
 from {{out.classpath}} import {{out.name}}
             {%- endif %}
         {%- endfor %}
