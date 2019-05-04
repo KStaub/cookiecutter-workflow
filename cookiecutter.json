@@ -2,31 +2,33 @@
   "id": 1,
   "name": "workflow_creator",
   "task_filename": "tasks",
-  "tasks": [
-    {
-      "id": 1,
-      "name": "WorkflowSpec",
-      "classpath": "my.tasks",
-      "inherits_from": "ExternalTask",
-      "requires": {
+  "tasks": {
+    "task_list": [
+      {
         "id": 1,
-        "name": "ReqTask",
-        "classpath": "my.tasks"
-      },
-      "outputs": {
-        "id": 1,
-        "name": "LocalTarget",
-        "classpath": "my.targets",
-        "salted": false
-      },
-      "parameters": [
-        {
+        "name": "WorkflowSpec",
+        "classpath": "my.tasks",
+        "inherits_from": "ExternalTask",
+        "requires": {
           "id": 1,
-          "name": "my_parameter",
-          "classpath": "luigi",
-          "type": "Parameter"
-        }
-      ]
-    }
-  ]
+          "name": "ReqTask",
+          "classpath": "my.tasks"
+        },
+        "outputs": {
+          "id": 1,
+          "name": "LocalTarget",
+          "classpath": "my.targets",
+          "salted": false
+        },
+        "parameters": [
+          {
+            "id": 1,
+            "name": "my_parameter",
+            "classpath": "luigi",
+            "type": "Parameter"
+          }
+        ]
+      }
+    ]
+  }
 }
